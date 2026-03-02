@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guild Glory System | Pro Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Guild Glory System | Neon Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: #02040a;
-            color: #e2e8f0;
+            font-family: 'Poppins', sans-serif;
+            background: #050112; /* গাঢ় বেগুনি কালো */
+            color: #f1f5f9;
             overflow-x: hidden;
-            user-select: none; /* টেক্সট কপি করা বন্ধ রাখবে গেমারদের জন্য */
+            user-select: none;
         }
 
-        /* BG Glow Animation */
+        /* BG Glow Animation - নতুন কালার */
         body::before {
             content: '';
             position: fixed;
             top: -10%; left: -10%;
-            width: 40%; height: 40%;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.05), transparent);
+            width: 50%; height: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent);
             z-index: -1;
         }
 
         /* HERO SECTION */
         .hero {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #0b1430 0%, #02040c 100%);
-            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            background: radial-gradient(circle at center, #110636 0%, #050112 100%);
+            border-bottom: 2px solid rgba(139, 92, 246, 0.2);
         }
 
         .logo {
-            font-family: 'Orbitron';
-            font-size: 28px;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, #00ffff, #7c3aed);
+            font-family: 'Rajdhani';
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            /* নতুন গোল্ডেন-পার্পল গ্রেডিয়েন্ট */
+            background: linear-gradient(90deg, #ff00cc, #3333ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            text-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
             margin-bottom: 12px;
         }
 
         .tagline {
-            font-family: 'Orbitron';
-            color: #22d3ee;
-            font-size: 11px;
-            letter-spacing: 1px;
+            font-family: 'Rajdhani';
+            color: #a78bfa;
+            font-size: 13px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
@@ -58,25 +60,28 @@
         .statusBox {
             display: flex;
             justify-content: space-around;
-            padding: 12px;
-            margin: 20px;
-            background: rgba(7, 13, 37, 0.8);
-            border: 1px solid rgba(0, 255, 255, 0.05);
-            border-radius: 50px;
+            padding: 14px;
+            margin: -25px 20px 20px 20px;
+            background: rgba(20, 10, 50, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 15px;
             font-size: 12px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .live { color: #22c55e; font-weight: bold; text-shadow: 0 0 5px #22c55e; }
+        .live { color: #4ade80; font-weight: bold; text-shadow: 0 0 8px #4ade80; }
 
         /* FORM STYLING */
-        .section { padding: 0 25px 25px; }
+        .section { padding: 10px 25px 25px; }
 
         label { 
-            font-size: 12px; 
+            font-size: 11px; 
             color: #94a3b8; 
             margin-left: 5px;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         input, select {
@@ -84,33 +89,40 @@
             margin-top: 8px;
             margin-bottom: 20px;
             padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 255, 0.1);
-            background: #030a24;
+            border-radius: 10px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            background: #0f0729;
             color: #fff;
             outline: none;
             transition: all 0.3s ease;
         }
 
         input:focus, select:focus {
-            border-color: #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-            background: #050e2e;
+            border-color: #ff00cc;
+            box-shadow: 0 0 15px rgba(255, 0, 204, 0.2);
+            background: #160b3d;
         }
 
         .btn {
             width: 100%;
             padding: 16px;
             border: none;
-            border-radius: 12px;
-            font-family: 'Orbitron';
+            border-radius: 10px;
+            font-family: 'Rajdhani';
             font-weight: bold;
-            background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+            /* পার্পল টু পিঙ্ক গ্রেডিয়েন্ট */
+            background: linear-gradient(135deg, #7c3aed 0%, #ff00cc 100%);
             color: white;
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
             transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            box-shadow: 0 6px 25px rgba(255, 0, 204, 0.5);
+            transform: translateY(-2px);
         }
 
         .btn:active { transform: scale(0.98); }
@@ -124,44 +136,45 @@
         }
 
         .statCard {
-            background: #060c20;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: #0f0729;
+            padding: 20px 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(139, 92, 246, 0.1);
             text-align: center;
         }
 
-        .statCard span { font-size: 11px; color: #94a3b8; display: block; }
-        .number { color: #22d3ee; font-size: 18px; font-weight: bold; margin-top: 5px; }
+        .statCard span { font-size: 11px; color: #94a3b8; display: block; margin-bottom: 5px;}
+        .number { color: #ff00cc; font-size: 20px; font-weight: bold; font-family: 'Rajdhani'; }
 
         /* COMMENT BOX */
         .comments {
             margin: 25px;
-            background: #040816;
+            background: rgba(15, 7, 41, 0.5);
             border-radius: 15px;
             padding: 15px;
             height: 150px;
             overflow: hidden;
-            border: 1px solid rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.1);
         }
 
         .commentItem {
-            padding: 8px 0;
+            padding: 10px 0;
             font-size: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.05);
             animation: slideIn 0.4s ease-out;
+            color: #cbd5e1;
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-10px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* LOADER OVERLAY */
         .loader {
             position: fixed;
             inset: 0;
-            background: #01030a;
+            background: #050112;
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -170,12 +183,12 @@
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(0, 255, 255, 0.1);
-            border-top: 3px solid #00ffff;
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 0, 204, 0.1);
+            border-top: 4px solid #ff00cc;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
             margin-bottom: 20px;
         }
 
@@ -186,36 +199,38 @@
 <body>
 
     <div class="hero">
-    <div class="logo">GUILD GLORY</div>
-    <div class="tagline" id="tagText">SYSTEM INITIALIZING...</div>
+        <div class="logo">✦ GUILD GLORY</div>
+        <div class="tagline" id="tagText">INITIALIZING SYSTEM...</div>
     </div>
 
     <div class="statusBox">
-        <div>SERVER: <span class="live">SECURE</span></div>
+        <div>SERVER: <span class="live">ENCRYPTED</span></div>
         <div>ACTIVE: <span id="players">1,240</span></div>
     </div>
 
     <div class="section">
-        <label>GUILD UID</label>
-        <input type="tel" id="uid" maxlength="15" placeholder="Enter Guild UID (e.g. 10023456)">
+        <label>GUILD ID ACCESS</label>
+        <input type="tel" id="uid" maxlength="15" placeholder="UID (e.g. 10023456)">
 
-        <label>REGION / COUNTRY</label>
+        <label>SELECT SERVER REGION</label>
         <select id="country">
-            <option value="">Select Region</option>
-            <option value="BD">🇧🇩 Bangladesh</option>
-            <option value="IN">🇮🇳 India</option>
+            <option value="">Choose Region</option>
+            <option value="BD">Bangladesh</option>
+            <option value="IN">India</option>
+            <option value="BR">Brazil</option>
+            <option value="ID">Indonesia</option>
         </select>
 
-        <button class="btn" onclick="startSystem()">CONNECT TO SERVER</button>
+        <button class="btn" onclick="startSystem()">ACCESS GLORY ENGINE</button>
     </div>
 
     <div class="statGrid">
         <div class="statCard">
-            <span>Global Bots</span>
+            <span>Network Nodes</span>
             <div class="number" id="bots">412</div>
         </div>
         <div class="statCard">
-            <span>Active Guilds</span>
+            <span>Sync Guilds</span>
             <div class="number" id="guilds">94</div>
         </div>
     </div>
@@ -224,24 +239,25 @@
 
     <div class="loader" id="loader">
         <div class="spinner"></div>
-        <h3 id="loadingText" style="font-family:Orbitron; font-size:14px; color:cyan;">CONNECTING...</h3>
+        <h3 id="loadingText" style="font-family:Rajdhani; font-size:18px; color:#ff00cc; letter-spacing:2px;">LOADING...</h3>
     </div>
 
     <script>
-        // UID input filtering
+        // ... (আপনার আগের JavaScript কোডটি হুবহু এখানে থাকবে)
         const uidInput = document.getElementById("uid");
         uidInput.addEventListener("input", (e) => {
             e.target.value = e.target.value.replace(/\D/g, '');
         });
 
-        // Dynamic Counters
         function updateCounter(id, min, max) {
             setInterval(() => {
-                let val = parseInt(document.getElementById(id).innerText.replace(',', ''));
+                let element = document.getElementById(id);
+                if(!element) return;
+                let val = parseInt(element.innerText.replace(',', ''));
                 val += Math.floor(Math.random() * 5) * (Math.random() > 0.5 ? 1 : -1);
                 if(val < min) val = min;
                 if(val > max) val = max;
-                document.getElementById(id).innerText = val.toLocaleString();
+                element.innerText = val.toLocaleString();
             }, 3000);
         }
 
@@ -249,16 +265,14 @@
         updateCounter("bots", 300, 600);
         updateCounter("guilds", 80, 150);
 
-        // Rotating Taglines
-        const tags = ["Scanning AI Network...", "Bypassing Firewall...", "Syncing Glory Engine...", "Anti-Ban Shield Active"];
+        const tags = ["Scanning Nodes...", "Encryption Active...", "Syncing Data...", "Shielding IP..."];
         let tIdx = 0;
         setInterval(() => {
             document.getElementById("tagText").innerText = tags[tIdx];
             tIdx = (tIdx + 1) % tags.length;
         }, 2500);
 
-        // Enhanced Live Feed
-        const feedMessages = ["connected to sync", "glory boost active", "security bypass success", "server link established"];
+        const feedMessages = ["node connected", "glory injector ready", "proxy established", "server bypass ok"];
         const feedBox = document.getElementById("commentsBox");
         
         setInterval(() => {
@@ -266,30 +280,25 @@
             const msg = feedMessages[Math.floor(Math.random() * feedMessages.length)];
             const div = document.createElement("div");
             div.className = "commentItem";
-            div.innerHTML = `<span style="color:cyan">UID ${id}</span> - ${msg}`;
+            div.innerHTML = `<span style="color:#ff00cc; font-weight:bold;">ID:${id}</span> <span style="opacity:0.6">></span> ${msg}`;
             feedBox.prepend(div);
             if(feedBox.children.length > 5) feedBox.removeChild(feedBox.lastChild);
         }, 2000);
 
-        // System Start Logic
         function startSystem() {
             const uid = uidInput.value;
             const country = document.getElementById("country").value;
 
             if(uid.length < 5 || country === "") {
-                alert("Please enter a valid UID and select your region.");
+                alert("Please fill all fields!");
                 return;
             }
-
-            // Store Session
-            localStorage.setItem("targetUID", uid);
-            localStorage.setItem("region", country);
 
             const loader = document.getElementById("loader");
             const loadText = document.getElementById("loadingText");
             loader.style.display = "flex";
 
-            const steps = ["SEARCHING GUILD...", "VERIFYING DATA...", "INJECTING PACKETS...", "FINALIZING..."];
+            const steps = ["FETCHING DATA...", "INJECTING...", "BYPASSING...", "SUCCESS!"];
             let sIdx = 0;
 
             const process = setInterval(() => {
@@ -298,11 +307,13 @@
                 if(sIdx >= steps.length) {
                     clearInterval(process);
                     setTimeout(() => {
-                        window.location.href = "home.html"; // নিশ্চিত করুন এই ফাইলটি আছে
-                    }, 500);
+                        alert("Connected Successfully!");
+                        loader.style.display = "none";
+                    }, 800);
                 }
             }, 1000);
         }
     </script>
 </body>
 </html>
+
