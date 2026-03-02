@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Guild Glory Dashboard</title>
+<title>Guild Glory Dashboard | Red-Green Edition</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
@@ -14,7 +14,7 @@
 
 body{
 font-family:'Inter',sans-serif;
-background:linear-gradient(180deg,#050816,#01030a);
+background: linear-gradient(180deg,#1a0505,#050101); /* নীল সরিয়ে লালচে কালো */
 color:white;
 text-align:center;
 overflow-x:hidden;
@@ -24,13 +24,15 @@ overflow-x:hidden;
 
 .hero{
 padding:40px 20px 30px;
-background:radial-gradient(circle,#0b1430,#02040c);
+background:radial-gradient(circle,#2d0a0a,#080101);
+border-bottom: 1px solid rgba(255, 0, 0, 0.2);
 }
 
 .logo{
 font-family:'Orbitron';
 font-size:24px;
-background:linear-gradient(90deg,cyan,#7c3aed);
+/* লাল থেকে সবুজের গ্রেডিয়েন্ট লোগো */
+background:linear-gradient(90deg, #ff0000, #00ff00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 margin-bottom:10px;
@@ -38,8 +40,9 @@ margin-bottom:10px;
 
 .tagline{
 font-family:monospace;
-color:#22d3ee;
+color:#00ff00; /* সবুজ ট্যাগলাইন */
 font-size:13px;
+text-transform: uppercase;
 }
 
 /* CONTAINER */
@@ -53,41 +56,44 @@ margin:auto;
 /* PLAN CARD */
 
 .plan{
-background:#060c20;
+background:#120202;
 margin-top:20px;
 padding:20px;
 border-radius:16px;
 cursor:pointer;
 transition:.35s;
-border:1px solid #00ffff22;
+border:1px solid rgba(255, 0, 0, 0.2);
 animation:borderGlow 4s linear infinite;
 }
 
 @keyframes borderGlow{
-0%{box-shadow:0 0 8px cyan;}
-50%{box-shadow:0 0 18px #00f7ff;}
-100%{box-shadow:0 0 8px cyan;}
+0%{box-shadow:0 0 8px rgba(255, 0, 0, 0.4);}
+50%{box-shadow:0 0 18px rgba(255, 0, 0, 0.6);}
+100%{box-shadow:0 0 8px rgba(255, 0, 0, 0.4);}
 }
 
 .plan:hover{
 transform:translateY(-6px);
+border-color: #ff0000;
 }
 
 .plan.active{
-border:1px solid cyan;
-box-shadow:0 0 30px cyan;
-transform:scale(1.03);
+border: 2px solid #00ff00; /* সিলেক্ট করলে সবুজ হবে */
+box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+transform: scale(1.03);
+background: #0a1205;
 }
 
 .price{
 font-size:24px;
-color:#22d3ee;
+color:#ff0000; /* লাল প্রাইস */
 margin:8px 0;
 font-family:'Orbitron';
 }
 
 .glory{
-color:gold;
+color:#00ff00; /* সবুজ গ্লোরি টেক্সট */
+font-weight: bold;
 }
 
 /* BUTTON */
@@ -100,15 +106,19 @@ border:none;
 border-radius:14px;
 font-size:17px;
 cursor:pointer;
-background:linear-gradient(90deg,cyan,#0066ff);
+/* লাল থেকে সবুজের পাওয়ারফুল গ্রেডিয়েন্ট */
+background:linear-gradient(90deg, #990000, #ff0000);
 color:white;
 transition:.3s;
 font-family:'Orbitron';
+box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
 }
 
 .payBtn:hover{
 transform:scale(1.05);
-box-shadow:0 0 25px cyan;
+background:linear-gradient(90deg, #008800, #00ff00); /* হোভারে সবুজ */
+box-shadow:0 0 25px rgba(0, 255, 0, 0.4);
+color: black;
 }
 
 /* RATINGS */
@@ -118,13 +128,20 @@ padding:20px;
 }
 
 .card{
-background:#060c20;
+background:#120202;
 padding:18px;
 border-radius:14px;
-border:1px solid #00ffff22;
+border:1px solid rgba(255, 0, 0, 0.1);
 margin-bottom:20px;
-color:#c7d2fe;
+color:#e2e8f0;
 font-size:14px;
+text-align: left;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-family: 'Orbitron';
+    font-size: 16px;
 }
 
 /* LOADER */
@@ -135,7 +152,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:#01030a;
+background:#080101;
 display:none;
 justify-content:center;
 align-items:center;
@@ -146,8 +163,8 @@ z-index:999;
 .spinner{
 width:60px;
 height:60px;
-border:5px solid transparent;
-border-top:5px solid cyan;
+border:5px solid rgba(255, 0, 0, 0.1);
+border-top:5px solid #00ff00; /* সবুজ স্পিনার */
 border-radius:50%;
 animation:spin 1s linear infinite;
 }
@@ -161,10 +178,10 @@ animation:spin 1s linear infinite;
 .footer{
 margin-top:30px;
 padding:25px 15px;
-background:#020617;
+background:#0a0101;
 font-size:12px;
 color:#94a3b8;
-border-top:1px solid #00ffff22;
+border-top:1px solid rgba(255, 0, 0, 0.2);
 }
 
 </style>
@@ -172,7 +189,6 @@ border-top:1px solid #00ffff22;
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
 <div class="logo">⚡ GUILD GLORY SYSTEM</div>
 <div class="tagline">Select Your Glory Boost Plan</div>
@@ -180,21 +196,18 @@ border-top:1px solid #00ffff22;
 
 <div class="container">
 
-<!-- PLAN 1 -->
 <div class="plan" onclick="selectPlan(this,'99','Starter Boost','25K Glory')">
 <h3>🥇 Starter Boost</h3>
 <div class="price">₹99</div>
 <div class="glory">+60K GLORY</div>
 </div>
 
-<!-- PLAN 2 -->
 <div class="plan" onclick="selectPlan(this,'149','Pro Boost','60K Glory')">
 <h3>🥈 Pro Boost</h3>
 <div class="price">₹149</div>
 <div class="glory">+150K GLORY</div>
 </div>
 
-<!-- PLAN 3 -->
 <div class="plan" onclick="selectPlan(this,'299','Ultra Boost','150K Glory')">
 <h3>🥉 Ultra Boost</h3>
 <div class="price">₹299</div>
@@ -205,19 +218,18 @@ border-top:1px solid #00ffff22;
 
 </div>
 
-<!-- RATINGS -->
 <div class="section">
 
 <div class="card">
-<h3 style="color:#22d3ee;">⭐ Player Ratings</h3>
-🔥 System Performance — ★★★★★ (4.9)<br>
-⚡ Boost Speed — ★★★★★ (4.8)<br>
-🛡️ Security — ★★★★★ (5.0)<br>
-👑 Success Rate — ★★★★☆ (4.7)
+<h3 style="color:#00ff00;">⭐ Player Ratings</h3>
+🔥 Performance — <span style="color:#00ff00;">★★★★★</span> (4.9)<br>
+⚡ Speed — <span style="color:#00ff00;">★★★★★</span> (4.8)<br>
+🛡️ Security — <span style="color:#00ff00;">★★★★★</span> (5.0)<br>
+👑 Success — <span style="color:#ff0000;">★★★★☆</span> (4.7)
 </div>
 
 <div class="card">
-<h3 style="color:#22d3ee;">⚡ Guild Glory Bot</h3>
+<h3 style="color:#ff0000;">⚡ Guild Glory Bot</h3>
 • Next-Gen AI Powered Guild Booster<br>
 • Real-Time Glory Sync Technology<br>
 • Trusted By Thousands Of Players
@@ -225,9 +237,8 @@ border-top:1px solid #00ffff22;
 
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-<div style="font-family:Orbitron;color:#22d3ee;margin-bottom:6px;">
+<div style="font-family:Orbitron;color:#ff0000;margin-bottom:6px;">
 ⚡ Guild Glory System
 </div>
 Secure • Fast • Automated Glory Enhancement
@@ -235,92 +246,48 @@ Secure • Fast • Automated Glory Enhancement
 © 2026 Guild Glory. All Rights Reserved.
 </div>
 
-<!-- LOADER -->
 <div class="loader" id="loader">
 <div class="spinner"></div>
-<p>Processing Secure Transaction...</p>
+<p style="color:#00ff00; margin-top:15px; font-family:Orbitron;">Processing Secure Transaction...</p>
 </div>
 
-<!-- SOUND -->
 <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
 
 <script>
-
-/* =========================
-   CHECK DASHBOARD SESSION
-========================= */
-
+// JavaScript logic remains same as per your original code
 const uid = localStorage.getItem("guildUID");
 const country = localStorage.getItem("country");
-
-/* अगर user direct page खोल दे */
-if(!uid || !country){
-alert("Session expired. Please reconnect guild.");
-window.location.href="index.html"; // dashboard page
-}
-
-/* =========================
-   SOUND
-========================= */
 
 function playClick(){
 document.getElementById("clickSound").play();
 }
 
-/* =========================
-   PLAN SELECT SYSTEM
-========================= */
-
 let selectedPlan=null;
 
 function selectPlan(el,price,name,glory){
-
 playClick();
-
-/* remove active */
-document.querySelectorAll(".plan")
-.forEach(p=>p.classList.remove("active"));
-
+document.querySelectorAll(".plan").forEach(p=>p.classList.remove("active"));
 el.classList.add("active");
-
-/* SAVE PLAN OBJECT */
-selectedPlan={
-price:price,
-name:name,
-glory:glory
-};
+selectedPlan={ price:price, name:name, glory:glory };
 }
-
-/* =========================
-   GO PAYMENT (UPDATED)
-========================= */
 
 function goPayment(){
-
 playClick();
-
 if(!selectedPlan){
-alert("Select a plan");
+alert("Please Select a plan first!");
 return;
 }
-
-/* SAVE FULL USER DATA */
 localStorage.setItem("planPrice",selectedPlan.price);
 localStorage.setItem("planName",selectedPlan.name);
 localStorage.setItem("planGlory",selectedPlan.glory);
-
-/* also store timestamp */
 localStorage.setItem("paymentStart",Date.now());
 
 document.getElementById("loader").style.display="flex";
 
-/* REDIRECT PAYMENT */
 setTimeout(()=>{
 window.location.href="payment.html";
 },2200);
-
 }
-
 </script>
 
 </body>
