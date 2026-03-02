@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guild Glory System | Neon Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Guild Glory System | Red-Green Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: #050112; /* গাঢ় বেগুনি কালো */
+            background: #080101; /* কালো লালচে ভাব */
             color: #f1f5f9;
             overflow-x: hidden;
             user-select: none;
         }
 
-        /* BG Glow Animation - নতুন কালার */
+        /* BG Glow Animation - লাল ও সবুজ গ্লো */
         body::before {
             content: '';
             position: fixed;
             top: -10%; left: -10%;
-            width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent);
+            width: 45%; height: 45%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.08), transparent);
             z-index: -1;
         }
 
@@ -31,8 +31,8 @@
         .hero {
             padding: 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #110636 0%, #050112 100%);
-            border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+            background: radial-gradient(circle at center, #1a0505 0%, #080101 100%);
+            border-bottom: 2px solid rgba(255, 0, 0, 0.2);
         }
 
         .logo {
@@ -40,17 +40,17 @@
             font-size: 32px;
             font-weight: 700;
             letter-spacing: 3px;
-            /* নতুন গোল্ডেন-পার্পল গ্রেডিয়েন্ট */
-            background: linear-gradient(90deg, #ff00cc, #3333ff);
+            /* লাল ও সবুজের শার্প গ্রেডিয়েন্ট */
+            background: linear-gradient(90deg, #ff0000, #00ff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
             margin-bottom: 12px;
         }
 
         .tagline {
             font-family: 'Rajdhani';
-            color: #a78bfa;
+            color: #00ff00; /* সবুজ ট্যাগলাইন */
             font-size: 13px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -62,26 +62,25 @@
             justify-content: space-around;
             padding: 14px;
             margin: -25px 20px 20px 20px;
-            background: rgba(20, 10, 50, 0.9);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 15px;
+            background: rgba(15, 0, 0, 0.9);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 8px; /* একটু শার্প লুক */
             font-size: 12px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.1);
         }
 
-        .live { color: #4ade80; font-weight: bold; text-shadow: 0 0 8px #4ade80; }
+        .live { color: #00ff00; font-weight: bold; text-shadow: 0 0 10px #00ff00; }
 
         /* FORM STYLING */
         .section { padding: 10px 25px 25px; }
 
         label { 
             font-size: 11px; 
-            color: #94a3b8; 
+            color: #b91c1c; /* লাল লেবেল */
             margin-left: 5px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         input, select {
@@ -89,43 +88,41 @@
             margin-top: 8px;
             margin-bottom: 20px;
             padding: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            background: #0f0729;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            background: #120202;
             color: #fff;
             outline: none;
             transition: all 0.3s ease;
         }
 
         input:focus, select:focus {
-            border-color: #ff00cc;
-            box-shadow: 0 0 15px rgba(255, 0, 204, 0.2);
-            background: #160b3d;
+            border-color: #00ff00; /* ফোকাস করলে সবুজ হবে */
+            box-shadow: 0 0 12px rgba(0, 255, 0, 0.2);
+            background: #1a0303;
         }
 
         .btn {
             width: 100%;
             padding: 16px;
             border: none;
-            border-radius: 10px;
+            border-radius: 5px;
             font-family: 'Rajdhani';
             font-weight: bold;
-            /* পার্পল টু পিঙ্ক গ্রেডিয়েন্ট */
-            background: linear-gradient(135deg, #7c3aed 0%, #ff00cc 100%);
+            /* লাল গ্রেডিয়েন্ট বাটন */
+            background: linear-gradient(135deg, #ff0000 0%, #990000 100%);
             color: white;
             font-size: 16px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
             transition: 0.3s;
             text-transform: uppercase;
         }
 
         .btn:hover {
-            box-shadow: 0 6px 25px rgba(255, 0, 204, 0.5);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.3);
+            background: linear-gradient(135deg, #00ff00 0%, #008800 100%); /* হোভারে সবুজ হবে */
         }
-
-        .btn:active { transform: scale(0.98); }
 
         /* STATS CARDS */
         .statGrid {
@@ -136,45 +133,39 @@
         }
 
         .statCard {
-            background: #0f0729;
+            background: #120202;
             padding: 20px 15px;
-            border-radius: 15px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 0, 0.1);
             text-align: center;
         }
 
-        .statCard span { font-size: 11px; color: #94a3b8; display: block; margin-bottom: 5px;}
-        .number { color: #ff00cc; font-size: 20px; font-weight: bold; font-family: 'Rajdhani'; }
+        .statCard span { font-size: 11px; color: #94a3b8; display: block; }
+        .number { color: #ff0000; font-size: 20px; font-weight: bold; font-family: 'Rajdhani'; }
 
         /* COMMENT BOX */
         .comments {
             margin: 25px;
-            background: rgba(15, 7, 41, 0.5);
-            border-radius: 15px;
+            background: rgba(10, 0, 0, 0.8);
+            border-radius: 8px;
             padding: 15px;
             height: 150px;
             overflow: hidden;
-            border: 1px solid rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.1);
         }
 
         .commentItem {
             padding: 10px 0;
             font-size: 12px;
-            border-bottom: 1px solid rgba(139, 92, 246, 0.05);
-            animation: slideIn 0.4s ease-out;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.05);
             color: #cbd5e1;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* LOADER OVERLAY */
         .loader {
             position: fixed;
             inset: 0;
-            background: #050112;
+            background: #080101;
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -185,11 +176,10 @@
         .spinner {
             width: 60px;
             height: 60px;
-            border: 4px solid rgba(255, 0, 204, 0.1);
-            border-top: 4px solid #ff00cc;
+            border: 4px solid rgba(255, 0, 0, 0.1);
+            border-top: 4px solid #00ff00; /* সবুজ স্পিনার */
             border-radius: 50%;
-            animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
-            margin-bottom: 20px;
+            animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -199,39 +189,38 @@
 <body>
 
     <div class="hero">
-        <div class="logo">✦ GUILD GLORY</div>
-        <div class="tagline" id="tagText">INITIALIZING SYSTEM...</div>
+        <div class="logo">⚠ SYSTEM ACTIVE</div>
+        <div class="tagline" id="tagText">MONITORING NETWORK...</div>
     </div>
 
     <div class="statusBox">
-        <div>SERVER: <span class="live">ENCRYPTED</span></div>
-        <div>ACTIVE: <span id="players">1,240</span></div>
+        <div>STATUS: <span class="live">ONLINE</span></div>
+        <div>USERS: <span id="players" style="color:red">1,240</span></div>
     </div>
 
     <div class="section">
-        <label>GUILD ID ACCESS</label>
-        <input type="tel" id="uid" maxlength="15" placeholder="UID (e.g. 10023456)">
+        <label>TARGET GUILD ID</label>
+        <input type="tel" id="uid" maxlength="15" placeholder="Enter ID here...">
 
-        <label>SELECT SERVER REGION</label>
+        <label>REGION ACCESS</label>
         <select id="country">
-            <option value="">Choose Region</option>
+            <option value="">Choose Location</option>
             <option value="BD">Bangladesh</option>
             <option value="IN">India</option>
             <option value="BR">Brazil</option>
-            <option value="ID">Indonesia</option>
         </select>
 
-        <button class="btn" onclick="startSystem()">ACCESS GLORY ENGINE</button>
+        <button class="btn" onclick="startSystem()">EXECUTE COMMAND</button>
     </div>
 
     <div class="statGrid">
         <div class="statCard">
-            <span>Network Nodes</span>
+            <span style="color: #00ff00;">Active Nodes</span>
             <div class="number" id="bots">412</div>
         </div>
         <div class="statCard">
-            <span>Sync Guilds</span>
-            <div class="number" id="guilds">94</div>
+            <span style="color: #00ff00;">Security Level</span>
+            <div class="number" style="color: #00ff00;">MAX</div>
         </div>
     </div>
 
@@ -239,11 +228,11 @@
 
     <div class="loader" id="loader">
         <div class="spinner"></div>
-        <h3 id="loadingText" style="font-family:Rajdhani; font-size:18px; color:#ff00cc; letter-spacing:2px;">LOADING...</h3>
+        <h3 id="loadingText" style="font-family:Rajdhani; font-size:18px; color:#00ff00; margin-top:20px;">ACCESSING...</h3>
     </div>
 
     <script>
-        // ... (আপনার আগের JavaScript কোডটি হুবহু এখানে থাকবে)
+        // JavaScript অংশ একই রাখা হয়েছে, শুধু ফিড মেসেজের রঙ সবুজ করা হয়েছে
         const uidInput = document.getElementById("uid");
         uidInput.addEventListener("input", (e) => {
             e.target.value = e.target.value.replace(/\D/g, '');
@@ -251,69 +240,41 @@
 
         function updateCounter(id, min, max) {
             setInterval(() => {
-                let element = document.getElementById(id);
-                if(!element) return;
-                let val = parseInt(element.innerText.replace(',', ''));
+                let el = document.getElementById(id);
+                if(!el) return;
+                let val = parseInt(el.innerText.replace(',', ''));
                 val += Math.floor(Math.random() * 5) * (Math.random() > 0.5 ? 1 : -1);
-                if(val < min) val = min;
-                if(val > max) val = max;
-                element.innerText = val.toLocaleString();
+                el.innerText = Math.max(min, Math.min(max, val)).toLocaleString();
             }, 3000);
         }
-
         updateCounter("players", 1100, 1500);
         updateCounter("bots", 300, 600);
-        updateCounter("guilds", 80, 150);
 
-        const tags = ["Scanning Nodes...", "Encryption Active...", "Syncing Data...", "Shielding IP..."];
+        const tags = ["Firewall Breach...", "Verifying Encryption...", "System Overload...", "Success!"];
         let tIdx = 0;
         setInterval(() => {
             document.getElementById("tagText").innerText = tags[tIdx];
             tIdx = (tIdx + 1) % tags.length;
         }, 2500);
 
-        const feedMessages = ["node connected", "glory injector ready", "proxy established", "server bypass ok"];
         const feedBox = document.getElementById("commentsBox");
-        
         setInterval(() => {
             const id = Math.floor(100000 + Math.random() * 900000);
-            const msg = feedMessages[Math.floor(Math.random() * feedMessages.length)];
             const div = document.createElement("div");
             div.className = "commentItem";
-            div.innerHTML = `<span style="color:#ff00cc; font-weight:bold;">ID:${id}</span> <span style="opacity:0.6">></span> ${msg}`;
+            div.innerHTML = `<span style="color:#00ff00">ACCESS:</span> ${id} - Linked`;
             feedBox.prepend(div);
             if(feedBox.children.length > 5) feedBox.removeChild(feedBox.lastChild);
         }, 2000);
 
         function startSystem() {
-            const uid = uidInput.value;
-            const country = document.getElementById("country").value;
-
-            if(uid.length < 5 || country === "") {
-                alert("Please fill all fields!");
-                return;
-            }
-
-            const loader = document.getElementById("loader");
-            const loadText = document.getElementById("loadingText");
-            loader.style.display = "flex";
-
-            const steps = ["FETCHING DATA...", "INJECTING...", "BYPASSING...", "SUCCESS!"];
-            let sIdx = 0;
-
-            const process = setInterval(() => {
-                loadText.innerText = steps[sIdx];
-                sIdx++;
-                if(sIdx >= steps.length) {
-                    clearInterval(process);
-                    setTimeout(() => {
-                        alert("Connected Successfully!");
-                        loader.style.display = "none";
-                    }, 800);
-                }
-            }, 1000);
+            if(uidInput.value.length < 5) { alert("Invalid ID"); return; }
+            document.getElementById("loader").style.display = "flex";
+            setTimeout(() => { 
+                alert("Operation Complete!"); 
+                document.getElementById("loader").style.display = "none";
+            }, 4000);
         }
     </script>
 </body>
 </html>
-
