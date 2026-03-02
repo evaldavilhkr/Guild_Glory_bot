@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ZEXISTEY AI SYSTEM</title>
+<title>DEVIL CEO AI | Red-Green Edition</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -19,7 +19,7 @@ box-sizing:border-box;
 body{
 height:100vh;
 font-family:'Inter',sans-serif;
-background:linear-gradient(135deg,#0b0f1f,#05070f);
+background:linear-gradient(135deg,#0f0505,#050101); /* গাঢ় লালচে কালো */
 display:flex;
 justify-content:center;
 align-items:center;
@@ -27,13 +27,13 @@ color:white;
 overflow:hidden;
 }
 
-/* SOFT GRADIENT LIGHT */
+/* SOFT GRADIENT LIGHT - RED GLOW */
 body::before{
 content:"";
 position:fixed;
 width:700px;
 height:700px;
-background:radial-gradient(circle,#6d28ff33,transparent);
+background:radial-gradient(circle,rgba(255, 0, 0, 0.08),transparent);
 top:-200px;
 right:-200px;
 animation:move 14s infinite alternate ease-in-out;
@@ -50,10 +50,10 @@ width:92%;
 max-width:520px;
 padding:48px 38px;
 border-radius:22px;
-background:rgba(20,24,45,.85);
+background:rgba(20,5,5,.85); /* ডার্ক রেড টোন */
 backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 20px 60px rgba(0,0,0,.6);
+border:1px solid rgba(255,0,0,.15);
+box-shadow:0 20px 60px rgba(0,0,0,.8);
 text-align:center;
 animation:fade .9s ease;
 }
@@ -71,28 +71,28 @@ animation:float 5s ease-in-out infinite;
 
 .bot img{
 width:85px;
-filter:drop-shadow(0 0 15px #22d3ee);
+filter:drop-shadow(0 0 15px #ff0000); /* রেড শ্যাডো */
 }
 
 @keyframes float{
 50%{transform:translateY(-8px);}
 }
 
-/* TITLE */
+/* TITLE - RED GRADIENT */
 .title{
 font-family:'Orbitron';
 font-size:32px;
 letter-spacing:2px;
-background:linear-gradient(90deg,#7c3aed,#22d3ee);
+background:linear-gradient(90deg,#ff0000,#990000);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 margin-bottom:12px;
 }
 
-/* TERMINAL TEXT */
+/* TERMINAL TEXT - GREEN */
 .subtitle{
 font-family:monospace;
-color:#22d3ee;
+color:#00ff00; /* সবুজ টেক্সট */
 font-size:14px;
 height:22px;
 margin-bottom:28px;
@@ -100,6 +100,12 @@ margin-bottom:28px;
 
 .cursor{
 animation:blink 1s infinite;
+background: #00ff00;
+display: inline-block;
+width: 8px;
+height: 15px;
+vertical-align: middle;
+margin-left: 2px;
 }
 
 @keyframes blink{
@@ -113,17 +119,17 @@ padding:20px;
 border-radius:14px;
 background:linear-gradient(
 145deg,
-rgba(30,35,70,.8),
-rgba(15,18,40,.8)
+rgba(20,5,5,.9),
+rgba(10,2,2,.9)
 );
-border:1px solid rgba(124,58,237,.25);
+border:1px solid rgba(0,255,0,.2); /* সবুজ বর্ডার */
 margin-bottom:32px;
-color:#cbd5ff;
+color:#00ff00; /* টেক্সট সবুজ */
 font-size:14px;
 line-height:1.7;
 }
 
-/* BUTTON */
+/* BUTTON - RED TO DARK RED */
 .startBtn{
 display:inline-block;
 padding:15px 36px;
@@ -133,13 +139,16 @@ font-size:16px;
 letter-spacing:1px;
 text-decoration:none;
 color:white;
-background:linear-gradient(90deg,#7c3aed,#22d3ee);
+background:linear-gradient(90deg,#cc0000,#ff0000);
 transition:.3s;
+box-shadow: 0 5px 15px rgba(255,0,0,0.3);
 }
 
 .startBtn:hover{
 transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(124,58,237,.6);
+background:linear-gradient(90deg,#008800,#00ff00); /* হোভারে সবুজ হবে */
+box-shadow:0 10px 25px rgba(0,255,0,.4);
+color: black;
 }
 
 /* FOOTER */
@@ -147,7 +156,7 @@ box-shadow:0 10px 25px rgba(124,58,237,.6);
 position:absolute;
 bottom:18px;
 font-size:12px;
-color:#7c82a8;
+color:#666;
 letter-spacing:1px;
 }
 
@@ -162,10 +171,10 @@ letter-spacing:1px;
 <img src="https://i.ibb.co/PvQ6cXnq/image.png" alt="Bot">
 </div>
 
-<div class="title">HALLS 🔰 SYSTEM</div>
+<div class="title">DEVIL 😈 SYSTEM</div>
 
 <div class="subtitle">
-<span id="terminalText"></span><span class="cursor">|</span>
+<span id="terminalText"></span><span class="cursor"></span>
 </div>
 
 <div class="features" id="featureBox"></div>
@@ -175,7 +184,7 @@ letter-spacing:1px;
 </div>
 
 <div class="footer">
-👽 Halls Bot • Premium AI Interface
+👽 Devil Bot • Premium AI Interface
 </div>
 
 <script>
