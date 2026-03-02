@@ -1,400 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guild Glory System | Pro Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<title>Guild Glory System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #02040a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            user-select: none; /* টেক্সট কপি করা বন্ধ রাখবে গেমারদের জন্য */
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        /* BG Glow Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%; left: -10%;
+            width: 40%; height: 40%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.05), transparent);
+            z-index: -1;
+        }
 
-<style>
+        /* HERO SECTION */
+        .hero {
+            padding: 50px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #0b1430 0%, #02040c 100%);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+        .logo {
+            font-family: 'Orbitron';
+            font-size: 28px;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #00ffff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            margin-bottom: 12px;
+        }
 
-body{
-font-family:'Inter',sans-serif;
-background:linear-gradient(180deg,#050816,#01030a);
-color:white;
-overflow-x:hidden;
-}
+        .tagline {
+            font-family: 'Orbitron';
+            color: #22d3ee;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-/* HERO */
-.hero{
-padding:40px 20px 30px;
-text-align:center;
-background:radial-gradient(circle,#0b1430,#02040c);
-}
+        /* STATUS BAR */
+        .statusBox {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px;
+            margin: 20px;
+            background: rgba(7, 13, 37, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.05);
+            border-radius: 50px;
+            font-size: 12px;
+            backdrop-filter: blur(5px);
+        }
 
-.logo{
-font-family:'Orbitron';
-font-size:24px;
-background:linear-gradient(90deg,cyan,#7c3aed);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:10px;
-}
+        .live { color: #22c55e; font-weight: bold; text-shadow: 0 0 5px #22c55e; }
 
-.tagline{
-font-family:monospace;
-color:#22d3ee;
-font-size:13px;
-height:18px;
-}
+        /* FORM STYLING */
+        .section { padding: 0 25px 25px; }
 
-/* STATUS */
-.statusBox{
-display:flex;
-justify-content:space-between;
-padding:15px;
-margin:20px;
-background:#070d25;
-border-radius:12px;
-font-size:13px;
-}
+        label { 
+            font-size: 12px; 
+            color: #94a3b8; 
+            margin-left: 5px;
+            font-weight: 600;
+        }
 
-.live{color:#22c55e;}
+        input, select {
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            background: #030a24;
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
 
-/* FORM */
-.section{padding:20px;}
+        input:focus, select:focus {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            background: #050e2e;
+        }
 
-label{font-size:13px;color:#9ca3ff;}
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Orbitron';
+            font-weight: bold;
+            background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            transition: 0.3s;
+        }
 
-input,select{
-width:100%;
-margin-top:6px;
-margin-bottom:18px;
-padding:14px;
-border-radius:10px;
-border:none;
-background:#02081f;
-color:white;
-outline:none;
-transition:.3s;
-}
+        .btn:active { transform: scale(0.98); }
 
-input:focus,select:focus{
-box-shadow:0 0 12px cyan;
-transform:scale(1.02);
-}
+        /* STATS CARDS */
+        .statGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0 25px;
+        }
 
-.btn{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-font-family:'Orbitron';
-background:linear-gradient(90deg,cyan,#0066ff);
-color:white;
-font-size:15px;
-cursor:pointer;
-transition:.3s;
-}
+        .statCard {
+            background: #060c20;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
 
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 0 20px cyan;
-}
+        .statCard span { font-size: 11px; color: #94a3b8; display: block; }
+        .number { color: #22d3ee; font-size: 18px; font-weight: bold; margin-top: 5px; }
 
-/* BOARD */
-.board{
-margin:20px;
-padding:16px;
-background:#060c20;
-border-radius:14px;
-border:1px solid #00ffff22;
-line-height:1.7;
-font-size:13px;
-color:#c7d2fe;
-}
+        /* COMMENT BOX */
+        .comments {
+            margin: 25px;
+            background: #040816;
+            border-radius: 15px;
+            padding: 15px;
+            height: 150px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.05);
+        }
 
-/* STATS */
-.stats{padding:20px;}
+        .commentItem {
+            padding: 8px 0;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            animation: slideIn 0.4s ease-out;
+        }
 
-.statCard{
-background:#060c20;
-padding:15px;
-border-radius:12px;
-margin-bottom:12px;
-display:flex;
-justify-content:space-between;
-}
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
 
-.number{
-color:#22d3ee;
-font-weight:bold;
-}
+        /* LOADER OVERLAY */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: #01030a;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-/* COMMENTS */
-.comments{
-margin:20px;
-background:#060c20;
-border-radius:14px;
-padding:15px;
-height:140px;
-overflow:hidden;
-border:1px solid #00ffff22;
-font-size:13px;
-}
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 255, 255, 0.1);
+            border-top: 3px solid #00ffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
 
-.commentItem{
-padding:6px 0;
-color:#c7d2fe;
-animation:fadeIn .5s;
-}
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* LOADER */
-.loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#01030a;
-display:none;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-font-family:monospace;
-color:cyan;
-z-index:999;
-}
-
-</style>
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-<div class="logo">⚡ GUILD GLORY SYSTEM</div>
-<div class="tagline"><span id="tagText"></span></div>
-</div>
+    <div class="hero">
+    <div class="logo">GUILD GLORY</div>
+    <div class="tagline" id="tagText">SYSTEM INITIALIZING...</div>
+    </div>
 
-<!-- STATUS -->
-<div class="statusBox">
-<div>Server: <span class="live">ONLINE</span></div>
-<div>Players: <span id="players">1200</span></div>
-</div>
+    <div class="statusBox">
+        <div>SERVER: <span class="live">SECURE</span></div>
+        <div>ACTIVE: <span id="players">1,240</span></div>
+    </div>
 
-<!-- FORM -->
-<div class="section">
+    <div class="section">
+        <label>GUILD UID</label>
+        <input type="tel" id="uid" maxlength="15" placeholder="Enter Guild UID (e.g. 10023456)">
 
-<label>Guild UID</label>
-<input id="uid" maxlength="15" placeholder="Enter UID (Numbers Only)">
+        <label>REGION / COUNTRY</label>
+        <select id="country">
+            <option value="">Select Region</option>
+            <option value="BD">🇧🇩 Bangladesh</option>
+            <option value="IN">🇮🇳 India</option>
+        </select>
 
-<label>Select Country</label>
-<select id="country">
-<option value="">🌍 Select Country</option>
-<option>🇮🇳 India</option>
-<option>🇧🇷 Brazil</option>
-<option>🇮🇩 Indonesia</option>
-<option>🇹🇭 Thailand</option>
-<option>🇻🇳 Vietnam</option>
-<option>🇵🇭 Philippines</option>
-<option>🇲🇾 Malaysia</option>
-<option>🇧🇩 Bangladesh</option>
-<option>🇲🇽 Mexico</option>
-<option>🇺🇸 USA</option>
-</select>
+        <button class="btn" onclick="startSystem()">CONNECT TO SERVER</button>
+    </div>
 
-<button class="btn" onclick="startSystem()">🔴 CONNECT GUILD</button>
+    <div class="statGrid">
+        <div class="statCard">
+            <span>Global Bots</span>
+            <div class="number" id="bots">412</div>
+        </div>
+        <div class="statCard">
+            <span>Active Guilds</span>
+            <div class="number" id="guilds">94</div>
+        </div>
+    </div>
 
-</div>
+    <div class="comments" id="commentsBox"></div>
 
-<!-- BOARD -->
-<div class="board">
-🏆 Guild Gallery Board<br>
-• Secure AI Protection Active<br>
-• Real-Time Player Sync Enabled<br>
-• Bot Monitoring Running<br>
-• Anti-Ban Shield Online
-</div>
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <h3 id="loadingText" style="font-family:Orbitron; font-size:14px; color:cyan;">CONNECTING...</h3>
+    </div>
 
-<!-- STATS -->
-<div class="stats">
+    <script>
+        // UID input filtering
+        const uidInput = document.getElementById("uid");
+        uidInput.addEventListener("input", (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
 
-<div class="statCard">
-<span>Live Players</span>
-<span class="number" id="livePlayers">1300</span>
-</div>
+        // Dynamic Counters
+        function updateCounter(id, min, max) {
+            setInterval(() => {
+                let val = parseInt(document.getElementById(id).innerText.replace(',', ''));
+                val += Math.floor(Math.random() * 5) * (Math.random() > 0.5 ? 1 : -1);
+                if(val < min) val = min;
+                if(val > max) val = max;
+                document.getElementById(id).innerText = val.toLocaleString();
+            }, 3000);
+        }
 
-<div class="statCard">
-<span>Bots Connected</span>
-<span class="number" id="bots">320</span>
-</div>
+        updateCounter("players", 1100, 1500);
+        updateCounter("bots", 300, 600);
+        updateCounter("guilds", 80, 150);
 
-<div class="statCard">
-<span>Guilds Active</span>
-<span class="number" id="guilds">88</span>
-</div>
+        // Rotating Taglines
+        const tags = ["Scanning AI Network...", "Bypassing Firewall...", "Syncing Glory Engine...", "Anti-Ban Shield Active"];
+        let tIdx = 0;
+        setInterval(() => {
+            document.getElementById("tagText").innerText = tags[tIdx];
+            tIdx = (tIdx + 1) % tags.length;
+        }, 2500);
 
-</div>
+        // Enhanced Live Feed
+        const feedMessages = ["connected to sync", "glory boost active", "security bypass success", "server link established"];
+        const feedBox = document.getElementById("commentsBox");
+        
+        setInterval(() => {
+            const id = Math.floor(100000 + Math.random() * 900000);
+            const msg = feedMessages[Math.floor(Math.random() * feedMessages.length)];
+            const div = document.createElement("div");
+            div.className = "commentItem";
+            div.innerHTML = `<span style="color:cyan">UID ${id}</span> - ${msg}`;
+            feedBox.prepend(div);
+            if(feedBox.children.length > 5) feedBox.removeChild(feedBox.lastChild);
+        }, 2000);
 
-<!-- LIVE COMMENTS -->
-<div class="comments" id="commentsBox"></div>
+        // System Start Logic
+        function startSystem() {
+            const uid = uidInput.value;
+            const country = document.getElementById("country").value;
 
-<!-- ⭐ RATINGS + TAGLINES -->
-<div class="section">
+            if(uid.length < 5 || country === "") {
+                alert("Please enter a valid UID and select your region.");
+                return;
+            }
 
-<div style="background:#060c20;padding:18px;border-radius:14px;border:1px solid #00ffff22;margin-bottom:20px;">
-<h3 style="margin-bottom:10px;color:#22d3ee;">⭐ Player Ratings</h3>
-<div style="line-height:2;font-size:14px;color:#c7d2fe;">
-🔥 System Performance — ★★★★★ (4.9)<br>
-⚡ Bot Speed — ★★★★★ (4.8)<br>
-🛡️ Security Protection — ★★★★★ (5.0)<br>
-👑 Guild Success Rate — ★★★★☆ (4.7)
-</div>
-</div>
+            // Store Session
+            localStorage.setItem("targetUID", uid);
+            localStorage.setItem("region", country);
 
-<div style="background:#060c20;padding:18px;border-radius:14px;border:1px solid #00ffff22;line-height:1.8;font-size:14px;color:#c7d2fe;">
-<h3 style="margin-bottom:10px;color:#22d3ee;">⚡ Guild Glory Bot</h3>
-• Next-Gen AI Powered Guild Booster<br>
-• Real-Time Glory Sync Technology<br>
-• Trusted By Thousands Of Free Fire Guilds Worldwide
-</div>
+            const loader = document.getElementById("loader");
+            const loadText = document.getElementById("loadingText");
+            loader.style.display = "flex";
 
-</div>
+            const steps = ["SEARCHING GUILD...", "VERIFYING DATA...", "INJECTING PACKETS...", "FINALIZING..."];
+            let sIdx = 0;
 
-<!-- FOOTER -->
-<div style="margin-top:30px;padding:25px 15px;text-align:center;background:#020617;font-size:12px;color:#94a3b8;border-top:1px solid #00ffff22;">
-<div style="margin-bottom:6px;color:#22d3ee;font-family:Orbitron;">
-⚡ Guild Glory System
-</div>
-Secure • Fast • Automated Guild Enhancement
-<br><br>
-© 2026 Guild Glory. All Rights Reserved.
-</div>
-
-<!-- LOADER -->
-<div class="loader" id="loader">
-<h2>Initializing System...</h2>
-<p id="loadingText"></p>
-</div>
-
-<script>
-
-/* UID ONLY */
-const uid=document.getElementById("uid");
-uid.addEventListener("input",()=>{
-uid.value=uid.value.replace(/\D/g,'').slice(0,15);
-});
-
-/* ===== AUTO CLEAR OLD SESSION ===== */
-localStorage.removeItem("planName");
-localStorage.removeItem("planPrice");
-
-/* LIVE COUNTERS */
-let players=1200;
-setInterval(()=>{
-players+=Math.random()>0.5?15:-15;
-players=Math.max(1000,Math.min(2000,players));
-players=Math.floor(players);
-document.getElementById("players").innerText=players;
-document.getElementById("livePlayers").innerText=players;
-},2000);
-
-/* BOTS */
-let bots=320;
-setInterval(()=>{
-bots+=Math.random()>0.5?5:-5;
-bots=Math.max(250,Math.min(500,bots));
-document.getElementById("bots").innerText=bots;
-},1800);
-
-/* GUILDS */
-let guilds=88;
-setInterval(()=>{
-guilds+=Math.random()>0.5?1:-1;
-guilds=Math.max(60,Math.min(120,guilds));
-document.getElementById("guilds").innerText=guilds;
-},2500);
-
-/* TAGLINES */
-const lines=[
-"Scanning AI Network...",
-"Preparing Guild Sync...",
-"Loading Glory Engine..."
-];
-let li=0;
-setInterval(()=>{
-document.getElementById("tagText").innerText=lines[li];
-li=(li+1)%lines.length;
-},2000);
-
-/* LIVE COMMENTS */
-const comments=[
-"🔥 Rahul joined guild boost",
-"⚡ PlayerX synced successfully",
-"👑 Glory upgrade completed",
-"🎮 Brazil guild activated",
-"🚀 Sync speed increased",
-"🛡️ Protection enabled",
-"⭐ New guild connected",
-"💎 Premium boost started"
-];
-
-const box=document.getElementById("commentsBox");
-
-setInterval(()=>{
-const div=document.createElement("div");
-div.className="commentItem";
-div.innerText=comments[Math.floor(Math.random()*comments.length)];
-box.prepend(div);
-if(box.children.length>6){box.removeChild(box.lastChild);}
-},1800);
-
-/* =========================
-   START SYSTEM (UPDATED)
-========================= */
-
-function startSystem(){
-
-const country=document.getElementById("country").value;
-const userUID=uid.value;
-
-if(userUID==""||country==""){
-alert("Fill all fields");
-return;
-}
-
-/* SAVE DATA FOR NEXT PAGES */
-localStorage.setItem("guildUID",userUID);
-localStorage.setItem("country",country);
-localStorage.setItem("loginTime",Date.now());
-
-document.getElementById("loader").style.display="flex";
-
-const steps=[
-"Connecting Server...",
-"Encrypting Data...",
-"Syncing Bots...",
-"Access Granted..."
-];
-
-let i=0;
-const text=document.getElementById("loadingText");
-
-const load=setInterval(()=>{
-text.innerText=steps[i%steps.length];
-i++;
-
-if(i>10){
-clearInterval(load);
-
-/* GO HOME PAGE */
-window.location.href="home.html";
-}
-
-},400);
-}
-
-</script>
-
+            const process = setInterval(() => {
+                loadText.innerText = steps[sIdx];
+                sIdx++;
+                if(sIdx >= steps.length) {
+                    clearInterval(process);
+                    setTimeout(() => {
+                        window.location.href = "home.html"; // নিশ্চিত করুন এই ফাইলটি আছে
+                    }, 500);
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
